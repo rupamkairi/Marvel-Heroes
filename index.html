@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marvel Heroes</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <script src="scripts/md5.js"></script>
+    <script src="scripts/user.js"></script>
+  </head>
+  <body>
+    <!-- form wrapper -->
+    <div>
+      <form>
+        <div class="search-form">
+          <input
+            class="search-box"
+            id="search_input"
+            name="search"
+            type="text"
+          />
+          <button class="search-btn" id="search_button" onclick="Req()">
+            SEARCH
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- content wrapper -->
+    <div>
+      <ol></ol>
+    </div>
+  </body>
+  <script defer src="scripts/main.js"></script>
+</html>

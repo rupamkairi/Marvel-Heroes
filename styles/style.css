@@ -1,0 +1,37 @@
+html,
+body {
+  margin: 0px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+:root {
+  --default-font: "Roboto Condensed", sans-serif;
+  --marvel-theme: rgb(250, 70, 70);
+}
+
+div.search-form {
+  margin: 1em;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+input.search-box {
+  margin: 0px;
+  border: 1px solid;
+  border-radius: 0px;
+  padding: 0.2em 1em;
+  font-family: var(--default-font);
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+button.search-btn {
+  margin: 0px;
+  background-color: var(--marvel-theme);
+  border: 1px solid;
+  padding: 0.5em 1em;
+  color: white;
+  font-family: var(--default-font);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
