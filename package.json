@@ -1,0 +1,16 @@
+{
+  "name": "marvel-heroes",
+  "version": "0.1.0",
+  "description": "A static site with nodejs api wrapper around MARVEL API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "nodemon index.js"
+  },
+  "author": "rupamkairi",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
