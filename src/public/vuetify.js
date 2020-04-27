@@ -1,0 +1,1 @@
+let vuetify = new Vuetify();

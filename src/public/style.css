@@ -1,0 +1,21 @@
+/* Vuetify overwrites */
+.v-application .display-2,
+.v-application .display-1,
+.v-application .headline,
+.v-application .title,
+.v-application .subtitle-1,
+body,
+div,
+span,
+p {
+  font-family: "Saira Extra Condensed", sans-serif !important;
+}
+
+body {
+  margin: 0px;
+  padding: 0%;
+}
+
+div#search-field-id {
+  width: 100vw;
+}
