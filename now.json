@@ -1,0 +1,17 @@
+{
+  "name": "marvel-heroes",
+  "version": 2,
+  "alias": "marvel-heroes-search.now.sh",
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "index.js"
+    }
+  ]
+}

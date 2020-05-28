@@ -39,7 +39,8 @@
     <script src="./pages/about.js"></script>
 
     <!-- components -->
-    <script src="./components/search.js"></script>
+    <script src="./components/HeroSearchField.js"></script>
+    <script src="./components/HeroDescriptionField.js"></script>
   </head>
 
   <body>
@@ -59,18 +60,10 @@
           <v-container fluid>
             <v-row>
               <v-col cols="4">
-                <v-text-field
-                  class="pa-4 headline font-weight-medium"
-                  color="red"
-                  clearable
-                  solo
-                  dark
-                  single-line
-                  label="Search for Hero"
-                ></v-text-field>
+                <hero-search-field />
               </v-col>
               <v-col cols="8">
-                hero view
+                <hero-description-field />
               </v-col>
             </v-row>
           </v-container>
