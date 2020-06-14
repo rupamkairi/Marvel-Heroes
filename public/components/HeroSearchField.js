@@ -7,7 +7,7 @@ Vue.component(name, {
 })
 */
 
-var _template = `<div id="hero-search-field-id">
+var _template = `<div id="hero-search-field-id" @change="searchLog">
 
   <v-text-field
     class="pa-4 headline font-weight-medium"
@@ -17,6 +17,9 @@ var _template = `<div id="hero-search-field-id">
     dark
     single-line
     label="Search for Hero"
+    
+    v-model.lazy="search_query"
+    
   ></v-text-field>
 
 </div>`;
@@ -30,8 +33,16 @@ Vue.component("hero-search-field", {
     };
   },
   methods: {
-    searchLog: function (query) {
-      console.log(query);
+    searchLog() {
+      let q = this.search_query;
+      let url = `${location.protocol}//${location.host}/api/search/${q}`;
+      console.log(url);
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => console.error(err));
     },
   },
 });
