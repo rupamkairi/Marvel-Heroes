@@ -2,27 +2,22 @@
   "name": "marvel-heroes",
   "version": "1.0.0",
   "description": "If you want to go forward and make something your own...\r 1. You must have to signup for MARVEL developer account at https://developer.marvel.com/ and have your own public and private keys.\r 2. Then clone this repo, and install npm package by running `cd Marvel-Heroes` and `npm install`. \r 3. Also you may need to install Nodemon package, I prefer globally so run `npm i -g nodemon`. And to run the project `npm start`.\r 4. The `public` directory is the hosted by the `index.js` and node. \r 5. To create and change api consider working in `src` directory, and make the site consider working in `public` directory.",
-  "main": "src/server/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "serve": "vercel dev"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rupamkairi/Marvel-Heroes.git"
   },
   "keywords": [
-    "express",
-    "vue"
+    "vercel",
+    "vue",
+    "serverless"
   ],
   "author": "rupamkairi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rupamkairi/Marvel-Heroes/issues"
   },
-  "homepage": "https://github.com/rupamkairi/Marvel-Heroes#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
-  }
+  "homepage": "https://marvel-heroes.rupamkairi.now.sh/"
 }
