@@ -1,71 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
-    />
-    <title>Marvel Heroes</title>
-
-    <!-- vue -->
-    <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- production version, optimized for size and speed -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-    <!-- fonts & icons -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- vuetify -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-
-    <!-- custom css -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- components -->
-    <script src="./components/HeroSearchField.js"></script>
-    <script src="./components/HeroDescriptionField.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
   </head>
-
   <body>
-    <div id="app">
-      <v-app app>
-        <v-app-bar app dark>
-          <v-spacer></v-spacer>
-          <v-toolbar-title>
-            <span class="red--text display-2 font-weight-bold"
-              >MARVEL HEROES</span
-            >
-          </v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-app-bar>
-
-        <v-main app>
-          <v-container fluid>
-            <v-row>
-              <v-col cols="4">
-                <hero-search-field />
-              </v-col>
-              <v-col cols="8">
-                <hero-description-field />
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-main>
-      </v-app>
-    </div>
-
-    <script src="vuetify.js"></script>
-    <script src="app.js"></script>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
   </body>
 </html>
