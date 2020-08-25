@@ -1,9 +1,30 @@
-module.exports = (req, res) => {
-  const {
-    query: { search },
-  } = req;
+const characters = require("../../services/characters");
 
-  res.status(200).send({
-    log: `search for ${search}`,
-  });
+module.exports = async (req, res) => {
+  try {
+    const {
+      query: { search }
+    } = req;
+
+    let params = {
+      name: "hulk",
+      nameStartsWith: "",
+      comics: "",
+      series: "",
+      stories: "",
+      events: "",
+      orderBy: "name",
+      limit: 5,
+      offset: 0
+    };
+
+    params.name = search;
+
+    res.status(200).json({
+      query: search,
+      data: await characters(params)
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };

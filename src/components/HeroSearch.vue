@@ -14,28 +14,37 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "HeroSearch",
   data: function() {
     return {
-      search_query: ""
+      search_query: "",
+      results: null
     };
   },
   methods: {
-    searchLog() {
+    async searchLog() {
       let q = this.search_query;
       let url = `${location.protocol}//${location.host}/api/search/${q}`;
-      console.log(url);
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
+      console.log("fetching");
+
+      axios
+        .get(url)
+        .then(res => {
+          console.log(res.data);
+          this.results = res.data.results;
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+          console.error(err);
+        });
     }
+  },
+  mounted() {
+    console.log("mounted");
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

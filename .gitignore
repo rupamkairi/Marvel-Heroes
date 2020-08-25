@@ -24,3 +24,5 @@ pnpm-debug.log*
 
 .vercel
 .env
+client
+text.txt
