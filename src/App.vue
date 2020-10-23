@@ -9,13 +9,13 @@
     </v-app-bar>
 
     <v-main app>
-      <v-container fluid>
+      <v-container>
         <v-row>
           <v-col cols="4">
-            <HeroSearch/>
+            <HeroSearch />
           </v-col>
           <v-col cols="8">
-            <HeroDescription/>
+            <HeroDescription />
           </v-col>
         </v-row>
       </v-container>
@@ -31,11 +31,9 @@ export default {
   name: "App",
   components: {
     HeroSearch,
-    HeroDescription
-  }
+    HeroDescription,
+  },
 };
 </script>
 
-<style>
-</style>
-
+<style></style>

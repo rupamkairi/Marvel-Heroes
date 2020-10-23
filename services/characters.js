@@ -11,10 +11,10 @@ function characters(params) {
     .update(ts + process.env.PRIVATE_KEY + process.env.PUBLIC_KEY)
     .digest("hex");
 
-  const url = `${endpoint}?ts=${ts}&apikey=${process.env.PUBLIC_KEY}&hash=${hash}&name=${params.name}`;
+  const url = `${endpoint}?ts=${ts}&apikey=${process.env.PUBLIC_KEY}&hash=${hash}&nameStartsWith=${params.nameStartsWith}&orderBy=${params.orderBy}&limit=${params.limit}`;
 
-  return new Promise(resolve => {
-    axios.get(url).then(res => {
+  return new Promise((resolve) => {
+    axios.get(url).then((res) => {
       if (res.status == 200) {
         // console.log(response.data.data);
         resolve(res.data.data);
