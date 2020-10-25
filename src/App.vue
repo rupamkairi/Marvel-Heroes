@@ -11,10 +11,10 @@
     <v-main app>
       <v-container>
         <v-row>
-          <v-col cols="4">
+          <v-col cols="12" xs="12" sm="4">
             <HeroSearch />
           </v-col>
-          <v-col cols="8">
+          <v-col cols="12" xs="12" sm="8">
             <HeroDescription />
           </v-col>
         </v-row>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import HeroSearch from "./components/HeroSearch";
-import HeroDescription from "./components/HeroDescription";
+import HeroSearch from "@/components/HeroSearch";
+import HeroDescription from "@/components/HeroDescription";
 export default {
   name: "App",
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 py-2">
+  <div>
     <v-text-field
       class="headline red--text font-weight-medium"
       color="red"
@@ -11,10 +11,10 @@
       v-model.lazy="searchQuery"
       @change="search"
     ></v-text-field>
-    <v-card elevation="5">
+    <v-card elevation="5" v-if="searchQuery != ''">
       <v-list>
         <v-list-item-group v-model="selectedCharacter">
-          <v-list-item class="px-4" v-for="(character, i) in results" :key="i">
+          <v-list-item v-for="(character, i) in results" :key="i">
             <v-list-item-avatar>
               <v-img
                 :src="
@@ -42,30 +42,45 @@ export default {
   name: "HeroSearch",
   data: function() {
     return {
+      lastSearchQuery: "",
       searchQuery: "",
       results: null,
-      selectedCharacter: null,
     };
   },
   methods: {
     async search() {
       let q = this.searchQuery;
-      let url = `${location.protocol}//${location.host}/api/search/${q}`;
-      console.log("fetching");
 
-      axios
-        .get(url)
-        .then((res) => {
-          console.log(res.data.data);
-          this.results = res.data.data.results;
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      if (this.lastSearchQuery != this.searchQuery) {
+        let url = `${location.protocol}//${location.host}/api/search/${q}`;
+        console.log("fetching");
+        this.lastSearchQuery = this.searchQuery;
+
+        axios
+          .get(url)
+          .then((res) => {
+            console.log(res.data.data);
+            this.results = res.data.data.results;
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     },
   },
-  mounted() {
-    console.log("mounted");
+  computed: {
+    selectedCharacter: {
+      get() {
+        return this.$store.state.selected;
+      },
+      set(value) {
+        let character = this.results[value];
+        // console.log(character);
+        this.$store.commit("selectCharacter", {
+          character: character,
+        });
+      },
+    },
   },
 };
 </script>
