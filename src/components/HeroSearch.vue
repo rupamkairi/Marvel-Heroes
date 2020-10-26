@@ -11,7 +11,7 @@
       v-model.lazy="searchQuery"
       @change="search"
     ></v-text-field>
-    <v-card elevation="5" v-if="searchQuery != ''">
+    <v-card elevation="5" v-if="results != null">
       <v-list>
         <v-list-item-group v-model="selectedCharacter">
           <v-list-item v-for="(character, i) in results" :key="i">
@@ -53,7 +53,7 @@ export default {
 
       if (this.lastSearchQuery != this.searchQuery) {
         let url = `${location.protocol}//${location.host}/api/search/${q}`;
-        console.log("fetching");
+        console.log("fetching search");
         this.lastSearchQuery = this.searchQuery;
 
         axios

@@ -19,37 +19,41 @@
         </p>
       </v-col>
     </v-row>
-    <!-- <div class="pl-3">
+    <div class="pl-3">
       <v-row>
         <p class="display-1 font-weight-bold">Comics</p>
         <v-col>
-          <CatalogueSlider
-            v-bind:itemsObject="`${this.$store.state.selected.comics}`"
-          ></CatalogueSlider>
+          <CatalogueSlider collectionOf="comics"></CatalogueSlider>
         </v-col>
       </v-row>
       <v-row>
         <p class="display-1 font-weight-bold">Events</p>
-        <v-col></v-col>
+        <v-col>
+          <CatalogueSlider collectionOf="events" />
+        </v-col>
       </v-row>
       <v-row>
         <p class="display-1 font-weight-bold">Series</p>
-        <v-col></v-col>
+        <v-col>
+          <CatalogueSlider collectionOf="series" />
+        </v-col>
       </v-row>
       <v-row>
         <p class="display-1 font-weight-bold">Stories</p>
-        <v-col></v-col>
+        <v-col>
+          <CatalogueSlider collectionOf="stories" />
+        </v-col>
       </v-row>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
-// import CatalogueSlider from "@/components/CatalogueSlider";
+import CatalogueSlider from "@/components/CatalogueSlider";
 export default {
   name: "HeroDescription",
   components: {
-    // CatalogueSlider,
+    CatalogueSlider,
   },
   data: function() {
     return {};
