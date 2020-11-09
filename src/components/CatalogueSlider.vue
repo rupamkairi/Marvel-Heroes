@@ -14,9 +14,7 @@ import axios from "axios";
 export default {
   name: "CatalogueSlider",
   props: {
-    collectionOf: {
-      type: String,
-    },
+    collectionURI: String,
   },
   data: () => ({
     results: null,
@@ -24,16 +22,16 @@ export default {
   computed: {
     message() {
       this.getData();
-      return `loaded ${this.collectionOf}.`;
+      return `loaded ${this.collectionURI}.`;
     },
   },
   methods: {
     async getData() {
       console.log(
-        `fetching ${this.collectionOf} for ${this.$store.state.selected.id}.`
+        `fetching ${this.collectionURI} for ${this.$store.state.selected.id}.`
       );
 
-      let url = `${location.protocol}//${location.host}/api/character/${this.$store.state.selected.id}`;
+      let url = `${location.protocol}//${location.host}/api/requestPage/${this.collectionURI}`;
       console.log(url);
       axios
         .get(url)

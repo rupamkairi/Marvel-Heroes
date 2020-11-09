@@ -23,10 +23,14 @@
       <v-row>
         <p class="display-1 font-weight-bold">Comics</p>
         <v-col>
-          <CatalogueSlider collectionOf="comics"></CatalogueSlider>
+          <CatalogueSlider
+            :collectionURI="
+              `${this.$store.state.selected.comics.collectionURI}`
+            "
+          ></CatalogueSlider>
         </v-col>
       </v-row>
-      <v-row>
+      <!-- <v-row>
         <p class="display-1 font-weight-bold">Events</p>
         <v-col>
           <CatalogueSlider collectionOf="events" />
@@ -43,7 +47,7 @@
         <v-col>
           <CatalogueSlider collectionOf="stories" />
         </v-col>
-      </v-row>
+      </v-row> -->
     </div>
   </div>
 </template>
