@@ -3,7 +3,7 @@
     <v-app-bar app dark>
       <v-spacer></v-spacer>
       <v-toolbar-title>
-        <span class="text-h3 red--text font-weight-black">MARVEL HEROES</span>
+        <!-- <span class="text-h3 red--text font-weight-black">MARVEL HEROES</span> -->
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>

@@ -22,13 +22,7 @@
     <div class="pl-3">
       <v-row>
         <p class="display-1 font-weight-bold">Comics</p>
-        <v-col>
-          <CatalogueSlider
-            :collectionURI="
-              `${this.$store.state.selected.comics.collectionURI}`
-            "
-          ></CatalogueSlider>
-        </v-col>
+        <CatalogueSlider />
       </v-row>
       <!-- <v-row>
         <p class="display-1 font-weight-bold">Events</p>

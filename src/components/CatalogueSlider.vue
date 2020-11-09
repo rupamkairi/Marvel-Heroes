@@ -1,11 +1,15 @@
 <template>
-  <v-sheet class="mx-auto" max-width="700">
-    <v-slide-group multiple show-arrows>
-      <v-slide-item>
-        <p>{{ message }}</p>
-      </v-slide-item>
-    </v-slide-group>
-  </v-sheet>
+  <div>
+    <p>category slider</p>
+    <p>{{ message }}</p>
+    <v-sheet class="mx-auto" max-width="700">
+      <v-slide-group multiple show-arrows>
+        <v-slide-item :v-for="comic in comics" :key="comic.id">
+          <p>{{ comic.title }}</p>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+  </div>
 </template>
 
 <script>
@@ -17,27 +21,30 @@ export default {
     collectionURI: String,
   },
   data: () => ({
-    results: null,
+    comics: null,
+    events: null,
+    stories: null,
+    series: null,
   }),
   computed: {
-    message() {
-      this.getData();
-      return `loaded ${this.collectionURI}.`;
+    message: function() {
+      this.getcomics();
+      return "load more";
     },
   },
   methods: {
-    async getData() {
-      console.log(
-        `fetching ${this.collectionURI} for ${this.$store.state.selected.id}.`
-      );
-
-      let url = `${location.protocol}//${location.host}/api/requestPage/${this.collectionURI}`;
+    getcomics() {
+      let characterId = this.$store.state.selected.id;
+      let url = `${location.protocol}//${location.host}/api/resource/${characterId}`;
       console.log(url);
       axios
         .get(url)
         .then((res) => {
           console.log(res.data.data);
-          this.results = res.data.data.results;
+          this.comics = res.data.data.comics.results;
+          this.stories = res.data.data.stories.results;
+          this.events = res.data.data.events.results;
+          this.series = res.data.data.series.results;
         })
         .catch((err) => {
           console.error(err);
