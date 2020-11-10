@@ -20,28 +20,23 @@
       </v-col>
     </v-row>
     <div class="pl-3">
-      <v-row>
+      <v-col>
         <p class="display-1 font-weight-bold">Comics</p>
-        <CatalogueSlider />
-      </v-row>
-      <!-- <v-row>
+        <CatalogueSlider catelogueOf="comics" />
+      </v-col>
+
+      <v-col>
         <p class="display-1 font-weight-bold">Events</p>
-        <v-col>
-          <CatalogueSlider collectionOf="events" />
-        </v-col>
-      </v-row>
-      <v-row>
+        <CatalogueSlider catelogueOf="events" />
+      </v-col>
+      <v-col>
         <p class="display-1 font-weight-bold">Series</p>
-        <v-col>
-          <CatalogueSlider collectionOf="series" />
-        </v-col>
-      </v-row>
-      <v-row>
+        <CatalogueSlider catelogueOf="series" />
+      </v-col>
+      <!-- <v-col>
         <p class="display-1 font-weight-bold">Stories</p>
-        <v-col>
-          <CatalogueSlider collectionOf="stories" />
-        </v-col>
-      </v-row> -->
+        <CatalogueSlider catelogueOf="stories" />
+      </v-col> -->
     </div>
   </div>
 </template>

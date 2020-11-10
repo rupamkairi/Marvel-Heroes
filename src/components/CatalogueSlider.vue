@@ -1,15 +1,27 @@
 <template>
-  <div>
-    <p>category slider</p>
-    <p>{{ message }}</p>
-    <v-sheet class="mx-auto" max-width="700">
-      <v-slide-group multiple show-arrows>
-        <v-slide-item :v-for="comic in comics" :key="comic.id">
-          <p>{{ comic.title }}</p>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-  </div>
+  <v-sheet max-width="100%">
+    <p>{{ getresults() }}</p>
+    <v-slide-group multiple show-arrows>
+      <v-slide-item v-for="result in results" :key="result.id">
+        <v-row class="fill-height" align="center" justify="center">
+          <v-sheet class="px-4">
+            <v-card width="100" height="150">
+              <v-img
+                :src="
+                  `${result.thumbnail.path}/portrait_medium.${result.thumbnail.extension}`
+                "
+              ></v-img>
+            </v-card>
+            <span
+              class="red--text d-inline-block text-truncate"
+              style="max-width: 100px;"
+              >{{ result.title }}</span
+            >
+          </v-sheet>
+        </v-row>
+      </v-slide-item>
+    </v-slide-group>
+  </v-sheet>
 </template>
 
 <script>
@@ -18,39 +30,35 @@ import axios from "axios";
 export default {
   name: "CatalogueSlider",
   props: {
-    collectionURI: String,
+    catelogueOf: String,
   },
   data: () => ({
-    comics: null,
-    events: null,
-    stories: null,
-    series: null,
+    characterId: null,
+    results: null,
   }),
-  computed: {
-    message: function() {
-      this.getcomics();
-      return "load more";
-    },
-  },
   methods: {
-    getcomics() {
+    getresults() {
       let characterId = this.$store.state.selected.id;
-      let url = `${location.protocol}//${location.host}/api/resource/${characterId}`;
-      console.log(url);
-      axios
-        .get(url)
-        .then((res) => {
-          console.log(res.data.data);
-          this.comics = res.data.data.comics.results;
-          this.stories = res.data.data.stories.results;
-          this.events = res.data.data.events.results;
-          this.series = res.data.data.series.results;
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+
+      if (characterId != this.characterId) {
+        this.characterId = characterId;
+        let url = `${location.protocol}//${location.host}/api/resource/${characterId}`;
+        console.log(
+          `fetching ${this.catelogueOf} for ${characterId} from ${url}`
+        );
+        axios
+          .get(url)
+          .then((res) => {
+            console.log(res.data.data[this.catelogueOf].results);
+            this.results = res.data.data[this.catelogueOf].results;
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     },
   },
+  computed: {},
 };
 </script>
 
